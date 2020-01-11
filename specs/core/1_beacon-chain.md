@@ -691,7 +691,7 @@ def apply_shard_transition(state: BeaconState, shard: Shard, transition: ShardTr
 def process_crosslink_for_shard(state: BeaconState,
                                 shard: Shard,
                                 shard_transition: ShardTransition,
-                                attestations: Sequence[Attestation]) -> Root:US
+                                attestations: Sequence[Attestation]) -> Root:
     committee = get_beacon_committee(state, get_current_epoch(state), shard)
     online_indices = get_online_validator_indices(state)
 
@@ -908,4 +908,3 @@ def process_light_client_committee_updates(state: BeaconState) -> None:
         new_committee = get_light_client_committee(state, get_current_epoch(state) + LIGHT_CLIENT_COMMITTEE_PERIOD)
         state.next_light_committee = committee_to_compact_committee(state, new_committee)
 ```
-
